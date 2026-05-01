@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.home-page {
+  font-family: 'Syne', sans-serif;
+  background: #0d0d0f;
   min-height: 100vh;
+  padding: 2rem;
+  color: #e8e6e0;
+}
+.enrolled-courses {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.enrolled-courses h2 {
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  color: #4a4a5a;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.enrolled-courses h2::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #1e1e24;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.course-card {
+  width: 33.33%;
+  background: #111115;
+  border: 1px solid #1e1e26;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 14px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b3a6e, #5a4a8e);
+  border-radius: 12px 12px 0 0;
+}
+
+.course-card:hover {
+  border-color: #2e2e3e;
+  background: #141418;
+}
+
+.course-card h3:first-child {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #4a4a5a;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+.course-card h3:last-child {
+  font-size: 15px;
+  font-weight: 600;
+  color: #d8d6d0;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
 }

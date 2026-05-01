@@ -5,8 +5,8 @@ const authService = {
     try {
       const response = await api.post('/auth/login', {email: username, password});
       const { token, name} = response.data.data;
-    //   localStorage.setItem('token', token);
-    //   localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(name));
       return {name, token};
     } catch (error) {
       throw error;
