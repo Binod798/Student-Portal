@@ -1,0 +1,16 @@
+import api from './api';
+const authService = {
+  login: async (username, password) => {
+    // Simulate an API call for authentication 
+    try {
+      const response = await api.post('/auth/login', {email: username, password});
+      const { token, name} = response.data.data;
+    //   localStorage.setItem('token', token);
+    //   localStorage.setItem('user', JSON.stringify(user));
+      return {name, token};
+    } catch (error) {
+      throw error;
+    } 
+  }
+};
+export default authService;

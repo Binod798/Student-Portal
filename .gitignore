@@ -1,0 +1,23 @@
+# React App
+React app/my_app/node_modules/
+React app/my_app/.env
+React app/my_app/.env.local
+React app/my_app/.env.development
+React app/my_app/.env.production
+React app/my_app/build/
+
+#server folder
+Server/node_modules/
+Server/.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
