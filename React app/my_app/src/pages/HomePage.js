@@ -1,5 +1,7 @@
 import {useState,useEffect} from 'react';
 import api from '../services/api';
+import all_courses from "../utils/constants";
+import CourseCard from '../components/CourseCard';
 function HomePage() {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
@@ -20,13 +22,16 @@ function HomePage() {
        <h2>Enrolled Courses</h2>
       <div className="enrolled-courses">       
         {/* Display enrolled courses here */}
-        {courses.map(course => (
-          <div key={course.id} className="course-card">
-            <h3>{course.course_code}</h3>
-            <h3>{course.course_name}</h3>
-          </div>
+        {courses.map((course,index) => (
+          <CourseCard key={index} course={course} />
         ))} 
 
+      </div>
+        <h2>All Courses</h2>
+      <div className="all-courses">
+        {all_courses.map((course,index) => (
+          <CourseCard key={index} course={course} />
+        ))} 
       </div>
 
 

@@ -13,7 +13,6 @@ const apiRoutes = require("./routes/apiRoutes")
 const adminRoutes = require("./routes/adminRoutes")
 
 const port = 4000
-
 app.use("/auth",authRoute)
 app.use("/api",apiRoutes)
 app.use("/admin",adminRoutes)

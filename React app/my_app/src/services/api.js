@@ -16,7 +16,8 @@ api.interceptors.request.use(
     const isPublic = publicRoutes.some(route => config.url.includes(route));
 
     if (!isPublic) {
-      const token = localStorage.getItem('token');
+      const token = sessionStorage.getItem('token');
+      
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
@@ -41,6 +42,7 @@ api.interceptors.response.use(
     const message =
       error.response?.data?.message ||
       'Something went wrong. Please try again.';
+      console.log(error.response)
 
     if (error.response?.status === 400) {
       toast.warning(message);             // bad request — show server message
@@ -48,11 +50,9 @@ api.interceptors.response.use(
 
     else if (error.response?.status === 401) {
       toast.error('Session expired. Please log in again.');
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      setTimeout(() => {
-        window.location.href = '/login';
-      }, 2000); // wait 2s so user can read the toast
+      // setTimeout(() => {
+      //   window.location.href = '/login';
+      // }, 2000); // wait 2s so user can read the toast
     }
 
     else if (error.response?.status === 403) {

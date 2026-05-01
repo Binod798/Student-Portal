@@ -35,7 +35,7 @@ const authController = {
             const token = await jwt.sign({id:user.id,name:user.name,email:user.email},SECRET_KEY,{expiresIn:"1d"})
             res.status(200).json({data:{token,email,name:user.name}})
 
-        }catch{
+        }catch(err){
             return res.status(401).json({message:err.message})
         }
     }
