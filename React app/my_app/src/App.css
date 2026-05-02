@@ -361,3 +361,49 @@ body {
   font-weight: 600;
   font-size: 14px;
 }
+
+/* Select Option */
+.select-option {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+.select-option select {
+  width: 100%;
+  padding: 10px 36px 10px 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.select-option select:hover {
+  border-color: #888;
+}
+
+.select-option select:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+}
+
+/* Custom dropdown arrow */
+.select-option::after {
+  content: '';
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #666;
+  pointer-events: none;
+}

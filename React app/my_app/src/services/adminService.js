@@ -15,6 +15,22 @@ const adminService = {
         } catch (error) {
             throw error;
         }
+    },
+    filterUser: async (courseCode) => {
+        try {
+            const response = await api.get(`/admin/filter_user?course_code=${courseCode}`);
+            return response.data.data;
+        } catch (error) {
+            throw error;
+        }
+    },
+    all_enrolled_courses: async () => {
+        try {
+            const response = await api.get(`/admin/all_enrolled_courses`)
+            return response.data.data
+        } catch (err) {
+            throw err
+        }
     }
-}
+};
 export default adminService;
