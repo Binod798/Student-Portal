@@ -6,7 +6,7 @@ const handle_get_all_users = async () => {
         return all_users
 
     } catch (err) {
-        return err.massage
+        return err.message
 
     }
 }
@@ -17,8 +17,17 @@ const handle_filter_user = async(course_code)=>{
         const [filter_user] = await db.query('select * from users u join courses c on u.id=c.user_id where c.course_code =?',[course_code]);
         return filter_user
     }catch(err){
-        return err.massage
+        return err.message
+    }
+}
+const handle_delete_course = async(course_id)=>{
+    try{
+        const delete_course = await db.query('delete from courses where course_id=?',[course_id])
+        console.log(delete_course)
+        return delete_course
+    }catch(err){
+        return err.message
     }
 }
 
-module.exports = {handle_get_all_users,handle_filter_user}
+module.exports = {handle_get_all_users,handle_filter_user,handle_delete_course}

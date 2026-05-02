@@ -49,19 +49,19 @@ api.interceptors.response.use(
     }
 
     else if (error.response?.status === 401) {
-      toast.error('Session expired. Please log in again.');
+      toast.error(message ?? 'Session expired. Please log in again.');
       // setTimeout(() => {
       //   window.location.href = '/login';
       // }, 2000); // wait 2s so user can read the toast
     }
 
     else if (error.response?.status === 403) {
-      toast.error('You are not allowed to do that.');
+      toast.error(message ?? 'You are not allowed to do that.');
       window.location.href = '/';
     }
 
     else if (error.response?.status === 404) {
-      toast.error('Resource not found.');
+      toast.error(message ?? 'Resource not found.');
     }
 
     else if (error.response?.status === 409) {
@@ -69,11 +69,11 @@ api.interceptors.response.use(
     }
 
     else if (error.response?.status === 500) {
-      toast.error('Server error. Please try again later.');
+      toast.error(message ?? 'Server error. Please try again later.');
     }
 
     else if (!error.response) {
-      toast.error('Cannot connect to server. Check your connection.');
+      toast.error(message ?? 'Cannot connect to server. Check your connection.');
     }
 
     return Promise.reject(error);

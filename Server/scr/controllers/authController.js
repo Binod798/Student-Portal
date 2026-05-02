@@ -31,7 +31,7 @@ const authController = {
             const user = await User.findByEmail(email);
             if(!user) return res.status(401).json({message:"User not found"});
             const isValid = await bycrypt.compare(password,user.password)
-            if(!isValid) return res.status(401).json({message:"Invalid password"})
+            if(!isValid) return res.status(401).json({message:"Please enter correct password"});
             const token = await jwt.sign({id:user.id,name:user.name,email:user.email},SECRET_KEY,{expiresIn:"1d"})
             res.status(200).json({data:{token,email,name:user.name}})
 

@@ -1,4 +1,4 @@
-const {handle_get_all_users,handle_filter_user} = require("../models/admin");
+const {handle_get_all_users,handle_filter_user,handle_delete_course} = require("../models/admin");
 const adminController = {
     all_user : async(req,res)=>{
         try{
@@ -18,6 +18,15 @@ const adminController = {
             const {course_code} = req.query;
             const filter_by_code = await handle_filter_user(course_code)
             return res.status(200).json({data:filter_by_code})
+        }catch(err){
+            return res.status(401).json({message:err.message})
+        }
+    },
+    delete_course: async(req,res)=>{
+        try{
+            const {course_code} = req.query;
+            const delete_course = await handle_delete_course(course_code)
+            return res.status(200).json({message:"Course deleted successfully"})
         }catch(err){
             return res.status(401).json({message:err.message})
         }
